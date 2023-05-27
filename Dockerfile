@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine3.11
+FROM golang:1.14-alpine3.11
 ENV PATH="$PATH:/bin/bash" \
     BENTO4_BIN="/opt/bento4/bin" \
     PATH="$PATH:/opt/bento4/bin"
@@ -31,4 +31,4 @@ RUN apk add --update --upgrade curl python unzip bash gcc g++ scons && \
 WORKDIR /go/src
 
 #vamos mudar para o endpoint correto. Usando top apenas para segurar o processo rodando
-ENTRYPOINT [ "top" ]
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
